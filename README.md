@@ -32,10 +32,10 @@ If you use this project in your research, please cite the following work. This p
 
 **This Project:**
 ```bibtex
-@misc{nedaei_teethlocalization_2024,
+@misc{nedaei_teethlocalization_2025,
   title={A Dockerized Mask R-CNN API for Tooth Localization and Numbering},
   author={Arash Nedaei},
-  year={2024},
+  year={2025},
   publisher={Github},
   journal={GitHub repository},
   howpublished={\url{https://github.com/h4ppy0wl/teeth_localization_and_numbering}},
