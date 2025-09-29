@@ -17,7 +17,7 @@ The service runs a customized Mask R-CNN model capable of performing tooth local
 
 ## Background and Citation
 
-This work is the result of a research project at the **University of Oulu**. The model was trained on a dataset from the **Digileap for Oral Health** project, which aims to develop a virtual reception for oral healthcare. This initiative uses AI and machine learning to analyze smartphone-captured images for remote assessment of treatment needs, making this model particularly well-suited for real-world clinical applications.
+This work is one of the contributions from a research project at the [**University of Oulu**](https://www.oulu.fi/), [Biomimetics and Intelligent Systems Group](https://www.oulu.fi/en/university/faculties-and-units/faculty-information-technology-and-electrical-engineering/biomimetics-and-intelligent-systems-group). The model was trained on a dataset from the [**Digileap for Oral Health**](https://www.oulu.fi/en/projects/digileap-oral-health-towards-virtual-reception) project, which aims to develop a virtual reception for oral healthcare. This initiative uses AI and machine learning to analyze smartphone-captured images for remote assessment of treatment needs, making this model particularly well-suited for real-world clinical applications.
 
 The implementation is a customized fork of [z-mahmud22/Mask-RCNN_TF2.14.0](https://github.com/z-mahmud22/Mask-RCNN_TF2.14.0), which is itself an updated version of the original Matterport Mask R-CNN for modern TensorFlow 2.x environments.
 
