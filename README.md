@@ -122,11 +122,11 @@ The easiest way to test the API is with the provided client script.
 ```bash
 python3 find_teeth.py \
   -i /path/to/your/image.jpg \
-  -w ./weights/mask_rcnn_teeth.h5
+  -w ./weights/mask_rcnn_teeth_0020.h5
 ```
 
 The script will:
-1.  Tell the server to load `mask_rcnn_teeth.h5`.
+1.  Tell the server to load `mask_rcnn_teeth.h5` (the container will remembers your previous path, so if you don't want to change the weight you don't need to path everytime!)
 2.  Send `image.jpg` to the `/predict` endpoint.
 3.  Print the JSON response containing the detections.
 4.  Download the generated overlay image, mask, and JSON results into a `downloads/` directory.
