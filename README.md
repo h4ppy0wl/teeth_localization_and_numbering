@@ -1,5 +1,7 @@
 # Teeth Localization and Numbering API
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/h4ppy0wl/tooth_localization_numbering_image)](https://hub.docker.com/r/h4ppy0wl/tooth_localization_numbering_image)
+
 The primary contribution of this work is to provide a robust solution for detecting, localizing, and numbering teeth from smartphone-captured images. It is designed to handle real-world variance in image quality, lighting, focus, and camera types, which is a critical first step for any AI-enabled dental diagnostic pipeline. This project simplifies this step by offering a Dockerized FastAPI application.
 
 The service runs a customized Mask R-CNN model capable of performing tooth localization, numbering (classification), and instance segmentation, returning precise polygonal masks for each detected tooth. It is designed for easy deployment, allowing researchers and developers to quickly integrate advanced dental image analysis into their applications.
@@ -100,10 +102,18 @@ docker run -d \
 - `-p 8000:8000`: Maps port 8000 on your host to port 8000 in the container.
 - `-v "$(pwd)/weights:/app/weights"`: Mounts your local `weights` directory to `/app/weights` inside the container. This allows the API to access the model file.
 - `--name teeth_api`: Assigns a convenient name to the container.
+- `-d`: Runs the container in detached (background) mode, freeing up your terminal.
 
 You can check if the container is running with `docker ps`.
 
 ---
+
+### Option 2: Build from Source
+
+If you want to modify the code or build the image yourself, follow these steps.
+
+1.  **Clone the Repository and Download Weights**
+    Follow steps 1 and 2 from "Option 1" to get the code and model weights.
 
 ## Usage
 
@@ -201,12 +211,15 @@ Serves files generated during prediction (e.g., overlays, masks). The URLs are p
 If you want to build the Docker image yourself, clone the repository and run the following command from the project root:
 
 1.  **Build the image:**
+2.  **Build the Docker Image:**
     ```bash
     docker build -t my-teeth-api:latest .
     ```
 
 2.  **Run the locally-built image:**
     After building, you can run your local image using the same steps as in the "Getting Started" section, but replacing the image name:
+3.  **Run the Locally-Built Container:**
+    After building, run your local image using the same `docker run` command, but replacing the image name with the tag you just created:
     ```bash
     docker run -d \
       -p 8000:8000 \
