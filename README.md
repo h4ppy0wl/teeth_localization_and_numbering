@@ -1,6 +1,6 @@
 # Teeth Localization and Numbering API
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/h4ppy0vvl/teeth_localization_and_numbering)](https://hub.docker.com/r/h4ppy0vvl/teeth_localization_ad_numbering)  [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Docker Pulls](https://img.shields.io/docker/pulls/h4ppy0vvl/teeth_localization_and_numbering)](https://hub.docker.com/r/h4ppy0vvl/teeth_localization_and_numbering)  [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 The primary contribution of this work is to provide a robust solution for detecting, localizing, and numbering teeth from smartphone-captured images. It is designed to handle real-world variance in image quality, lighting, focus, and camera types, which is a critical first step for any AI-enabled dental diagnostic pipeline. This project simplifies this step by offering a Dockerized FastAPI application.
 
