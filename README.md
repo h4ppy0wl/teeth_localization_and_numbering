@@ -28,7 +28,19 @@ This version includes significant customizations for the dental domain:
 
 ### Citation
 
-This project builds upon the foundational work of the Matterport Mask R-CNN. If you use this code in your research, please provide credit to the original authors.
+If you use this project in your research, please cite the following work. This project builds upon the foundational work of the Matterport Mask R-CNN, so please also credit the original authors.
+
+**This Project:**
+```bibtex
+@misc{nedaei_teethlocalization_2024,
+  title={A Dockerized Mask R-CNN API for Tooth Localization and Numbering},
+  author={Arash Nedaei},
+  year={2024},
+  publisher={Github},
+  journal={GitHub repository},
+  howpublished={\url{https://github.com/h4ppy0wl/teeth_localization_and_numbering}},
+}
+```
 
 **Original Matterport Implementation:**
 ```bibtex
