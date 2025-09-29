@@ -94,7 +94,7 @@ docker run -d \
   -p 8000:8000 \
   -v "$(pwd)/weights:/app/weights" \
   --name teeth_api \
-  <your-dockerhub-username>/tooth_localization_numbering_image:latest
+  h4ppy0vvl/tooth_localization_numbering_image:latest
 ```
 
 - `-p 8000:8000`: Maps port 8000 on your host to port 8000 in the container.
