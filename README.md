@@ -71,8 +71,7 @@ Follow these steps to get the API server up and running.
 The pre-built Docker image is available on Docker Hub. Pull the latest version with the following command:
 
 ```bash
-# Replace <your-dockerhub-username> with your actual Docker Hub username
-docker pull <your-dockerhub-username>/tooth_localization_numbering_image:latest
+docker pull h4ppy0vvl/tooth_localization_numbering_image:latest
 ```
 
 ### 2. Download Model Weights
@@ -98,7 +97,6 @@ docker run -d \
   <your-dockerhub-username>/tooth_localization_numbering_image:latest
 ```
 
-- `-d`: Runs the container in detached mode.
 - `-p 8000:8000`: Maps port 8000 on your host to port 8000 in the container.
 - `-v "$(pwd)/weights:/app/weights"`: Mounts your local `weights` directory to `/app/weights` inside the container. This allows the API to access the model file.
 - `--name teeth_api`: Assigns a convenient name to the container.
@@ -202,6 +200,19 @@ Serves files generated during prediction (e.g., overlays, masks). The URLs are p
 
 If you want to build the Docker image yourself, clone the repository and run the following command from the project root:
 
-```bash
-docker build -t <your-dockerhub-username>/tooth_localization_numbering_image:latest .
-```
+1.  **Build the image:**
+    ```bash
+    docker build -t my-teeth-api:latest .
+    ```
+
+2.  **Run the locally-built image:**
+    After building, you can run your local image using the same steps as in the "Getting Started" section, but replacing the image name:
+    ```bash
+    docker run -d \
+      -p 8000:8000 \
+      -v "$(pwd)/weights:/app/weights" \
+      --name teeth_api \
+      my-teeth-api:latest
+    ```
+
+---
