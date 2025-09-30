@@ -54,19 +54,19 @@ def download_file(url_path, dest_dir="downloads"):
     return out_path
 
 if __name__ == "__main__":
-    # 1. Set up argument parser
+    # argument parser
     parser = argparse.ArgumentParser(description="Client for the Mask R-CNN Teeth Detection API.")
     parser.add_argument("-i", "--image", required=True, help="Path to the input image file.")
     parser.add_argument("-w", "--weights", required=False, help="Optional: Path to the model weights file on the host.")
     args = parser.parse_args()
 
-    # 2. Validate that the input image exists
+    # Validate that the input image exists
     if not os.path.exists(args.image):
         print(f"Error: Image file not found at '{args.image}'")
         sys.exit(1)
 
     try:
-        # 3. (Optional) If weights are provided, set them on the server.
+        # If weights are provided, set them on the server.
         if args.weights:
             # The API needs the path as it exists *inside* the container.
             # We assume the host's weights directory is mounted to /app/weights.
@@ -76,13 +76,13 @@ if __name__ == "__main__":
             # Set the weights path on the server.
             set_server_settings(weights_path=container_weights_path)
 
-        # 4. Call prediction with the user's image.
+        # Call prediction with the user's image.
         print(f"\nRequesting prediction for '{args.image}'...")
         resp = call_predict(args.image, return_mask=True, return_masked=True)
         print("\n--- Prediction Result ---")
         print("Detections:", resp["detections"])
         
-        # 5. Download any files the API produced.
+        # Download any files the API produced
         for key in ("mask_url", "masked_url", "json_url"):
             if resp["images"].get(key):
                 saved_path = download_file(resp["images"][key])
