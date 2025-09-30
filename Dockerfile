@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-# Install runtime deps
+# runtime deps
 COPY requirements.txt /app/requirements.runtime.txt
 
 # Preinstall numpy so anything legacy that inspects numpy at build-time is safe
@@ -20,12 +20,12 @@ RUN pip install --no-cache-dir --upgrade pip setuptools wheel \
     && pip install --no-cache-dir numpy==1.23.5 \
     && pip install --no-cache-dir -r /app/requirements.runtime.txt
 
-# Copy only what’s needed for inference
+# Copy
 COPY mrcnn/ /app/mrcnn/
 COPY myTools/ /app/myTools/
 COPY app/ /app/app/
 
-# Runtime dir for generated files (mask/overlay) and URL prefix
+# Runtime dir
 RUN mkdir -p /app/runtime
 ENV RUNTIME_DIR=/app/runtime
 ENV FILES_URL_PREFIX=/files
