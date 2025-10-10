@@ -10,7 +10,7 @@ The service runs a customized Mask R-CNN model capable of performing tooth local
 
 - **FastAPI Backend**: A modern, high-performance web framework for building APIs.
 - **Mask R-CNN Model**: A powerful and widely-used model for instance segmentation.
-- **Customized for Dentistry**: Includes a modified detection layer and dental-specific image preprocessing to improve accuracy on clinical images.
+- **Customized for Dentistry**: Includes a modified detection layer and dental-specific image preprocessing to improve accuracy on oral cavity images.
 - **Dockerized**: Packaged for simple, cross-platform deployment.
 - **Rich Output**: Returns bounding boxes, class names (tooth numbers), scores, and segmentation polygons.
 - **Artifact Generation**: Can optionally generate and serve overlay images and segmentation masks.
