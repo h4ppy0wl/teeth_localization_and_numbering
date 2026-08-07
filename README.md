@@ -75,7 +75,7 @@ Models:
           PQ: 83.2%
           F1: 92.8%
     Paper: [https://arxiv.org/abs/2608.06275](https://arxiv.org/abs/2608.06275)
-    Code: [https://github.com/your-username/your-repo](https://github.com/your-username/your-repo)
+    Code: [https://github.com/h4ppy0wl/teeth_localization_and_numbering](https://github.com/h4ppy0wl/teeth_localization_and_numbering)
 ```
 
 ---
