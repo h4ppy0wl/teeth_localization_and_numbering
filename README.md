@@ -56,6 +56,27 @@ If you use this project in your research, please cite the following work. This p
   howpublished={\url{https://github.com/matterport/Mask_RCNN}},
 }
 ```
+## Automated Benchmarks
+
+```yaml
+Models:
+  - Name: TLNM (Custom Mask R-CNN)
+    Results:
+      - Task: Instance Segmentation
+        Dataset: Internal Smartphone Dental Dataset (Digileap of Oral Health)
+        Metrics:
+          AP50: 81.8%
+          PQ: 78.0%
+          F1: 88.4%
+      - Task: Instance Segmentation
+        Dataset: Independent External Dental Dataset (Teeth or Dental Image dataset)
+        Metrics:
+          AP50: 90.1%
+          PQ: 83.2%
+          F1: 92.8%
+    Paper: [https://arxiv.org/abs/2608.06275](https://arxiv.org/abs/2608.06275)
+    Code: [https://github.com/your-username/your-repo](https://github.com/your-username/your-repo)
+
 
 ---
 
