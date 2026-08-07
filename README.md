@@ -32,7 +32,7 @@ This version includes significant customizations for the dental domain:
 
 If you use this project in your research, please cite the following work. This project builds upon the foundational work of the Matterport Mask R-CNN, so please also credit the original authors.
 
-**Paper related to this Project:**
+**Preprint paper related to this Project:**
 ```bibtex
 @misc{nedaei2026tlnmexternallyvalidatedtooth,
       title={TLNM: Externally Validated Tooth Detection, Numbering and Segmentation from Smartphone Photographs Using Mask R-CNN}, 
