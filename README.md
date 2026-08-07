@@ -32,15 +32,16 @@ This version includes significant customizations for the dental domain:
 
 If you use this project in your research, please cite the following work. This project builds upon the foundational work of the Matterport Mask R-CNN, so please also credit the original authors.
 
-**This Project:**
+**Paper related to this Project:**
 ```bibtex
-@misc{nedaei_teethlocalization_2025,
-  title={A Dockerized Mask R-CNN API for Tooth Localization and Numbering},
-  author={Arash Nedaei},
-  year={2025},
-  publisher={Github},
-  journal={GitHub repository},
-  howpublished={\url{https://github.com/h4ppy0wl/teeth_localization_and_numbering}},
+@misc{nedaei2026tlnmexternallyvalidatedtooth,
+      title={TLNM: Externally Validated Tooth Detection, Numbering and Segmentation from Smartphone Photographs Using Mask R-CNN}, 
+      author={Arash Nedaei and Henna Tiensuu and Elina Väyrynen and Saujanya Karki and Jaakko Suutala},
+      year={2026},
+      eprint={2608.06275},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2608.06275}, 
 }
 ```
 
