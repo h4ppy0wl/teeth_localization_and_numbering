@@ -95,7 +95,7 @@ Follow these steps to get the API server up and running.
 The pre-built Docker image is available on Docker Hub. Pull the latest version with the following command:
 
 ```bash
-docker pull h4ppy0vvl/tooth_localization_numbering_image:latest
+docker pull h4ppy0vvl/teeth_localization_numbering_image:latest
 ```
 
 ### 2. Download Model Weights
@@ -118,7 +118,7 @@ docker run -d \
   -p 8000:8000 \
   -v "$(pwd)/weights:/app/weights" \
   --name teeth_api \
-  h4ppy0vvl/tooth_localization_numbering_image:latest
+  h4ppy0vvl/teeth_localization_numbering_image:latest
 ```
 
 - `-p 8000:8000`: Maps port 8000 on your host to port 8000 in the container.
@@ -205,7 +205,8 @@ Configures the inference settings on the server.
   "max_detections": 30
 }
 ```
-
+> **⚠️ Important Note:** While `weights_path` updates immediately, changes to `confidence_threshold` and `max_detections` require a container restart (`docker restart teeth_api`) to take effect, as these settings are baked into the neural network graph on startup.
+> 
 ### `GET /settings`
 
 Retrieves the current server settings.
@@ -220,7 +221,9 @@ Performs inference on an uploaded image.
 - `return_masked_image` (optional, `true` or `false`): If true, generates a JPG with detections overlaid on the original image.
 
 **Response (JSON):**
-A JSON object containing `detections`, `images` (with URLs to generated files), and `meta` information.
+A JSON object containing `detections`, `images`, and `meta` information. 
+
+> **⚠️ Note on Image URLs:** The URLs returned in the `images` dictionary (specifically under the keys `"masked_url"` and `"mask_url"`) are **relative paths** (e.g., `/files/abc123_overlay.jpg`). To download them from outside the container, you must manually prepend the host address (e.g., `http://localhost:8000`).
 
 ### `GET /files/{filename}`
 
@@ -232,15 +235,12 @@ Serves files generated during prediction (e.g., overlays, masks). The URLs are p
 
 If you want to build the Docker image yourself, clone the repository and run the following command from the project root:
 
-1.  **Build the image:**
-2.  **Build the Docker Image:**
+1.  **Build the Docker Image:**
     ```bash
     docker build -t my-teeth-api:latest .
     ```
 
-2.  **Run the locally-built image:**
-    After building, you can run your local image using the same steps as in the "Getting Started" section, but replacing the image name:
-3.  **Run the Locally-Built Container:**
+2.  **Run the Locally-Built Container:**
     After building, run your local image using the same `docker run` command, but replacing the image name with the tag you just created:
     ```bash
     docker run -d \
