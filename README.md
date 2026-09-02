@@ -95,7 +95,7 @@ Follow these steps to get the API server up and running.
 The pre-built Docker image is available on Docker Hub. Pull the latest version with the following command:
 
 ```bash
-docker pull h4ppy0vvl/teeth_localization_numbering:latest
+docker pull h4ppy0vvl/teeth_localization_and_numbering:latest
 ```
 
 ### 2. Download Model Weights
@@ -118,7 +118,7 @@ docker run -d \
   -p 8000:8000 \
   -v "$(pwd)/weights:/app/weights" \
   --name tlnm_api \
-  h4ppy0vvl/teeth_localization_numbering:latest
+  h4ppy0vvl/teeth_localization_and_numbering:latest
 ```
 
 - `-p 8000:8000`: Maps port 8000 on your host to port 8000 in the container.
