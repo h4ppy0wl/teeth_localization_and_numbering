@@ -95,7 +95,7 @@ Follow these steps to get the API server up and running.
 The pre-built Docker image is available on Docker Hub. Pull the latest version with the following command:
 
 ```bash
-docker pull h4ppy0vvl/teeth_localization_numbering_image:latest
+docker pull h4ppy0vvl/teeth_localization_numbering:latest
 ```
 
 ### 2. Download Model Weights
@@ -117,13 +117,13 @@ Run the Docker container, mapping the API port (`8000`) and mounting your local 
 docker run -d \
   -p 8000:8000 \
   -v "$(pwd)/weights:/app/weights" \
-  --name teeth_api \
-  h4ppy0vvl/teeth_localization_numbering_image:latest
+  --name tlnm_api \
+  h4ppy0vvl/teeth_localization_numbering:latest
 ```
 
 - `-p 8000:8000`: Maps port 8000 on your host to port 8000 in the container.
 - `-v "$(pwd)/weights:/app/weights"`: Mounts your local `weights` directory to `/app/weights` inside the container. This allows the API to access the model file.
-- `--name teeth_api`: Assigns a convenient name to the container.
+- `--name tlnm_api`: Assigns a convenient name to the container.
 - `-d`: Runs the container in detached (background) mode, freeing up your terminal.
 
 You can check if the container is running with `docker ps`.
@@ -205,7 +205,7 @@ Configures the inference settings on the server.
   "max_detections": 30
 }
 ```
-> **⚠️ Important Note:** While `weights_path` updates immediately, changes to `confidence_threshold` and `max_detections` require a container restart (`docker restart teeth_api`) to take effect, as these settings are baked into the neural network graph on startup.
+> **⚠️ Important Note:** While `weights_path` updates immediately, changes to `confidence_threshold` and `max_detections` require a container restart (`docker restart tlnm_api`) to take effect, as these settings are baked into the neural network graph on startup.
 > 
 ### `GET /settings`
 
@@ -246,7 +246,7 @@ If you want to build the Docker image yourself, clone the repository and run the
     docker run -d \
       -p 8000:8000 \
       -v "$(pwd)/weights:/app/weights" \
-      --name teeth_api \
+      --name tlnm_api \
       my-teeth-api:latest
     ```
 
