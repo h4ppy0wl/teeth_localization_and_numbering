@@ -1,6 +1,6 @@
 """
 
-version: 17.12.2024
+version: 02.09.2026
 training the model with filtered data. Hopefully this is the last experiment! :D
 
 
@@ -73,7 +73,18 @@ import tensorflow as tf #2.9.24
 ############################################################
 #  Configurations
 ############################################################
-
+def get_api_setting(key, default_value):
+    settings_file = "/app/app/settings.json"
+    try:
+        if os.path.exists(settings_file):
+            with open(settings_file, "r") as f:
+                settings = json.load(f)
+                # Ensure we return the correct type by safely falling back to default
+                val = settings.get(key)
+                return val if val is not None else default_value
+    except Exception:
+        pass
+    return default_value
 
 class TeethConfig(Config):
     """Configuration for training on the teeth  dataset.
@@ -112,8 +123,10 @@ class TeethConfig(Config):
     # Number of training steps per epoch
     STEPS_PER_EPOCH = 1103#sweeps all training dataset by 1100! #750 #previously 500
 
-    # Skip detections with < 80% confidence
-    DETECTION_MIN_CONFIDENCE = 0.5 #previously 0.9
+    # # Skip detections with < 80% confidence
+    # DETECTION_MIN_CONFIDENCE = 0.5 #previously 0.9
+    # Dynamically load from settings.json on container startup
+    DETECTION_MIN_CONFIDENCE = get_api_setting("confidence_threshold", 0.5)
 
     # If enabled, resizes instance masks to a smaller size to reduce
     # memory load. Recommended when using high-resolution images.
@@ -128,7 +141,9 @@ class TeethConfig(Config):
     #Arash: I have created following parameter to use it in refine_detections_graph()
     # Original mrcnn uses DETECTION_MAX_INSTANCES for limiting number of class detections and overall detections.
     # I keep it to limit class detections, and create DETECTION_MAX_INSTANCES_ALL_CLASSES to limit overal detections
-    DETECTION_MAX_INSTANCES_ALL_CLASSES = 30 #Arash
+    # DETECTION_MAX_INSTANCES_ALL_CLASSES = 30 #Arash
+    # Dynamically load from settings.json on container startup
+    DETECTION_MAX_INSTANCES_ALL_CLASSES = get_api_setting("max_detections", 30)
 
 
 
